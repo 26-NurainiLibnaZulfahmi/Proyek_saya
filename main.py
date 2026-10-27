@@ -9,6 +9,9 @@ def tambah_laporan(lokasi, keterangan):
     daftar_laporan.append(laporan_baru)
     print(f"\n Sukses: Laporan anda di '{lokasi}' telah terkirim pada pihak sekolah!")
 
+def lihat_semua_laporan():
+    print("\n=== DAFTAR LAPORAN KERUSAKAN SEKOLAH ===")
+
 while True:
     print("\n=== APLIKASI PELAPORAN KERUSAKAN SEKOLAH ===")
     print("1. Buat laporan kembali")
