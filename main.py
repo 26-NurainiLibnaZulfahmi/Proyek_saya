@@ -30,3 +30,11 @@ while True:
         
     else:
         print("\nPilihan tidak valid, silakan ketik 1 atau 2.")
+
+def lihat_semua_laporan():
+    print("\n=== DAFTAR LAPORAN KERUSAKAN SEKOLAH ===")
+    if len(daftar_laporan) == 0:
+        print("Belum ada laporan kerusakan yang masuk.")
+ 
+    else:
+        pass
