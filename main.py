@@ -21,6 +21,11 @@ def lihat_semua_laporan():
             print(f" Status     : {laporan['status']}")
             print("-" * 30)
 
+def ubah_status_laporan(nomor_laporan, status_baru):
+    indeks = nomor_laporan - 1
+    daftar_laporan[indeks]["status"] = status_baru
+    print(f"\n Sukses: Status laporan nomor {nomor_laporan} berhasil diubah menjadi '{status_baru}'!")
+
 while True:
     print("\n=== APLIKASI PELAPORAN KERUSAKAN SEKOLAH ===")
     print("1. Buat laporan kembali")
