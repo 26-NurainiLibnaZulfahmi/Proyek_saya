@@ -1,4 +1,19 @@
-daftar_laporan = []
+import json
+import os
+
+NAMA_FILE = "data_laporan.json"
+
+def muat_data():
+    if os.path.exists(NAMA_FILE):
+        with open(NAMA_FILE, "r") as file:
+            return json.load(file)
+    return [] 
+
+def simpan_data():
+    with open(NAMA_FILE, "w") as file:
+        json.dump(daftar_laporan, file, indent=4)
+
+daftar_laporan = muat_data()
 
 def tambah_laporan(lokasi, keterangan):
     if not lokasi.strip() or not keterangan.strip():
@@ -11,6 +26,7 @@ def tambah_laporan(lokasi, keterangan):
         "status": "Sedang menunggu perbaikan"
     }
     daftar_laporan.append(laporan_baru)
+    simpan_data()
     print(f"\n Sukses: Laporan anda di '{lokasi}' telah terkirim pada pihak sekolah!")
 
 def lihat_semua_laporan():
@@ -29,6 +45,7 @@ def ubah_status_laporan(nomor_laporan, status_baru):
     indeks = nomor_laporan - 1
     if 0 <= indeks < len(daftar_laporan):
         daftar_laporan[indeks]["status"] = status_baru
+        simpan_data()
         print(f"\n Sukses: Status laporan nomor {nomor_laporan} berhasil diubah menjadi '{status_baru}'!")
     else:
         print("\n Gagal: Nomor laporan tidak ditemukan.")
